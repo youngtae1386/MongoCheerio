@@ -22,7 +22,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/FootballScraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/footballscrapers";
 
 // mongoose.connect(MONGODB_URI);
 mongoose.set('useCreateIndex', true)
