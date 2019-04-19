@@ -1,0 +1,37 @@
+body {
+    background-image: url(../images/UEFA.png);
+    /* background-size: cover; */
+    display: table;
+    width: 100%;
+    /* height: inherit; */
+    background: linear-gradient( rgba(10, 10, 10, 0.5), rgba(10, 5, 6, 0.5) ), url(../images/UEFA.png);
+    background-position: center top;
+}
+.card {
+ /* width: 100%; */
+    /* width: 50%; */
+    color: black;
+}
+#saved {
+    width: 100%;
+    color: black;
+}
+#notes {
+    width: 100%;
+    color: black;
+    /* background: url(../images/tottenham.png) no-repeat center; */
+}
+.hero-image {
+    /* background: url(../images/tottenham.png) no-repeat center;  */
+    background-size: cover;
+    height: 500px;
+    position: relative;
+  }
+  .card-body {
+    background: url(../images/tottenham.png);
+    width: 100%;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+  }
