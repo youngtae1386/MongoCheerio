@@ -1,4 +1,4 @@
-var articleIdFromNote;
+let articleIdFromNote;
 
 const clearTextField = function() {
     document.getElementById('noteTextInput').value="";
@@ -16,7 +16,7 @@ const deleteSavedArticle = function(articleId) {
  };
 
 const saveNewNote = function(articleId) {
-    var newNoteText = $("#noteTextInput").val();
+    let newNoteText = $("#noteTextInput").val();
     console.log(newNoteText);
     $.ajax({
         type:"POST",
@@ -24,11 +24,21 @@ const saveNewNote = function(articleId) {
         data: { body: newNoteText, article: articleId }
     }).then(function(response){
         console.log(response);
-        displayNotes(articleId);
+        footballsnotes(articleId);
     }); 
 };
 
-var displayNotes = function(articleId) {
+
+const deleteNote = function(noteId) {
+    $.ajax({
+        type: "DELETE",
+        url: "/delete-note/" + noteId
+    }).then(function(response) {
+        footballsnotes(articleIdFromNote);
+    });
+};
+
+let footballsnotes = function(articleId) {
     $.ajax({
         type:"GET",
         url:"/show-article-notes/" + articleId
@@ -54,7 +64,7 @@ var displayNotes = function(articleId) {
         console.log(response);
         
         for (i = 0; i < response.note.length; i++) {
-            var savedNote = response.note[i];;
+            let savedNote = response.note[i];;
             console.log(savedNote);
 
             const deleteNoteButton = $("<button>")
@@ -80,12 +90,12 @@ var displayNotes = function(articleId) {
         });
 
         $(".saveNoteButton").on("click", function() {
-            var articleId = $(this).attr('id');
+            let articleId = $(this).attr('id');
             saveNewNote(articleId);
         });
 
         $(".deleteNoteButton").on("click", function() {
-            var noteId = $(this).attr('id');
+            let noteId = $(this).attr('id');
             articleIdFromNote = savedNote.article;
             console.log("deleteNoteButton clicked.");
             console.log(articleIdFromNote);
@@ -96,14 +106,7 @@ var displayNotes = function(articleId) {
     });
 };
 
-const deleteNote = function(noteId) {
-    $.ajax({
-        type: "DELETE",
-        url: "/delete-note/" + noteId
-    }).then(function(response) {
-        displayNotes(articleIdFromNote);
-    });
-};
+
 
 const displaySaved = function() {
     $.ajax({
@@ -154,14 +157,14 @@ const displaySaved = function() {
         
         $(".deleteButton").on("click", function() {
             console.log("deleteButton clicked");
-            var articleId = $(this).attr('id');
+            let articleId = $(this).attr('id');
             deleteSavedArticle(articleId);
         });
         
         $(".notesButton").on("click", function() {
             console.log("notesButton clicked");
-            var articleId = $(this).attr('id');
-            displayNotes(articleId);
+            let articleId = $(this).attr('id');
+            footballsnotes(articleId);
         });
     });
 };

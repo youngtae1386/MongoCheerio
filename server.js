@@ -6,7 +6,7 @@ const cheerio = require("cheerio");
 const bodyParser = require('body-parser');
 
 
-var PORT = process.env.PORT || 3030;
+var PORT = process.env.PORT || 3000;
 
 const app = express();
 
