@@ -37,7 +37,7 @@ Now your project should be successfully deployed on heroku.
 
 **Article search home screen**
 
-![screenshot-1][alt text](public/images/mainHomeSearch.png)
+![screenshot-1](public/images/mainHomeSearch.png)
 
 **Article comments modal**
 
